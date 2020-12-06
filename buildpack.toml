@@ -1,0 +1,61 @@
+api = "0.4"
+
+[buildpack]
+id       = "my-dependency"
+name     = "My Dependency"
+version  = "0.0.1"
+homepage = "https://github.com/micahyoung/dependency-cnb"
+
+[metadata]
+pre-package   = "scripts/build.sh"
+include-files = [
+    "README.md",
+    "bin/main",
+    "bin/build",
+    "bin/detect",
+    "bin/main.exe",
+    "bin/build.exe",
+    "bin/detect.exe",
+    "buildpack.toml",
+]
+
+    # Linux
+    [[metadata.dependencies]]
+    deprecation_date = "2021-08-11T00:00:00Z"
+    id = "my-dependency"
+    name = "My dependency"
+    sha256 = "aa101fd2a7539fa169ea0f98407e735e84fc4f87159e16a616bb9038590de2c6"
+    source = "https://github.com/micahyoung/dependency-cnb/archive/1d0cdafa6fd4976814d510c1be0b7483f09f9c54.zip"
+    source_sha256 = "0551c93b9e0a807cf594b9b764d6f4ff3fc75f5e6408da2bd8cf4791593875b1"
+    stacks = ["io.buildpacks.stacks.bionic", "io.buildpacks.samples.stacks.bionic"]
+    uri = "https://github.com/micahyoung/dependency-cnb/raw/main/integration/testdata/my-dependency.tar.gz"
+    version = "0.0.1"
+
+    # Windows
+    [[metadata.dependencies]]
+    deprecation_date = "2021-08-11T00:00:00Z"
+    id = "my-dependency"
+    name = "My dependency"
+    sha256 = "4f4b2395135f4ffe3c6d7ea974c99067d2d72476294019e68a9e404be79754f3"
+    source = "https://github.com/micahyoung/dependency-cnb/archive/1d0cdafa6fd4976814d510c1be0b7483f09f9c54.zip"
+    source_sha256 = "0551c93b9e0a807cf594b9b764d6f4ff3fc75f5e6408da2bd8cf4791593875b1"
+    stacks = ["io.buildpacks.samples.stacks.nanoserver-1809", "io.buildpacks.stacks.nanoserver", "io.buildpacks.stacks.servercore"]
+    uri = "https://github.com/micahyoung/dependency-cnb/raw/main/integration/testdata/my-dependency.zip"
+    version = "0.0.1"
+
+# Linux
+[[stacks]]
+id = "io.buildpacks.stacks.bionic"
+
+[[stacks]]
+id = "io.buildpacks.samples.stacks.bionic"
+
+# Windows
+[[stacks]]
+id = "io.buildpacks.stacks.servercore"
+
+[[stacks]]
+id = "io.buildpacks.stacks.nanoserver"
+
+[[stacks]]
+id = "io.buildpacks.samples.stacks.nanoserver-1809"

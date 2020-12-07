@@ -4,7 +4,7 @@ set -euo pipefail
 $(dirname $0)/../scripts/build.sh
 
 OS=$(docker info --format '{{.OSType}}')
-pack package-buildpack dependency-cnb:${OS} --config package-${OS}.yml
+pack package-buildpack dependency-cnb:${OS} --config package-${OS}.toml
 
 if [[ "$OS" == "windows" ]]; then
 BUILDER=cnbs/sample-builder:nanoserver-1809
